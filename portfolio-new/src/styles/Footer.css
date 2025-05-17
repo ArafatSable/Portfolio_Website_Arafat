@@ -1,0 +1,32 @@
+/* Footer.css */
+
+.footer {
+    background-color: #264E36; /* dark green */
+    padding: 2rem 1rem;        /* 32px top/bottom, 16px sides */
+  }
+  
+  .footer-container {
+    max-width: 72rem;           /* align with your content width */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-logo {
+    color: white;
+    font-size: 1.5rem;          /* 24px */
+    font-weight: 700;
+  }
+  
+  .footer-icons a {
+    color: white;
+    font-size: 1.75rem;         /* 28px */
+    margin-left: 1rem;
+    transition: color 0.2s;
+  }
+  
+  .footer-icons a:hover {
+    color: #10B981;             /* emerald accent */
+  }
+  
