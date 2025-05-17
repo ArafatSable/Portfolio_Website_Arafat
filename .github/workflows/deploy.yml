@@ -4,13 +4,19 @@ on:
   push:
     branches:
       - main    # or your default branch
-
+# Grant the minimum extra permission to allow pushes to gh-pages
+permissions:
+  contents: write
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+        with:
+          # persist the GITHUB_TOKEN so that the gh-pages action can push
+          persist-credentials: true
+          fetch-depth: 0
 
       - name: Use Node.js
         uses: actions/setup-node@v4
