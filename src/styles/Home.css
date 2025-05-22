@@ -39,11 +39,7 @@
   color: #10b981;
 }
 
-.home-section .vanta-canvas canvas {
-  mix-blend-mode: screen;   /* or overlay/soft-light */
-  opacity: 0.35;
-  pointer-events: none;     /* keep buttons clickable */
-}
+
 /* ===== Overlay that darkens the photo =========================== */
 .home-overlay {
   position: absolute;

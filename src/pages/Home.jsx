@@ -1,23 +1,24 @@
-// Home.jsx
-import { useEffect, useMemo, useRef } from "react";
+import { useMemo } from "react";
 import WaterWave from "react-water-wave";
-import WAVES from "vanta/dist/vanta.waves.min";
-import * as THREE from "three";
-
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+
 import bg from "../assets/bg.png";
 import resume from "../assets/Resume.pdf";
 import "../styles/Home.css";
 
-/* helpers */
+/* helpers ------------------------------------------------ */
 const webglOk = () => {
   try {
     const c = document.createElement("canvas");
     return !!(window.WebGLRenderingContext && c.getContext("webgl"));
-  } catch { return false; }
+  } catch {
+    return false;
+  }
 };
-const reduce = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reduce = () =>
+  matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/* overlay ------------------------------------------------ */
 const Overlay = () => (
   <>
     <div className="social-bar">
@@ -37,35 +38,13 @@ const Overlay = () => (
 );
 
 export default function Home() {
-  const hero = useRef(null);
-
-  /* ── VANTA on phones ─────────────────────────── */
-  useEffect(() => {
-    if (window.innerWidth >= 768 || !webglOk() || reduce()) return;
-  
-    const v = WAVES({
-      el: hero.current,
-      THREE,
-      color: 0xffffff,
-      shininess: 35,
-      waveHeight: 12,
-      waveSpeed: 0.45,
-      zoom: 0.9,
-      /* make the canvas transparent */
-      backgroundColor: 0x000000,
-      backgroundAlpha: 0.0,
-    });
-  
-    return () => v.destroy();
-  }, []);
-
-  /* ── WaterWave on larger screens ─────────────── */
-  const desktopRipple = useMemo(
+  /* run the ripple only on large screens with WebGL */
+  const useWaterWave = useMemo(
     () => window.innerWidth >= 768 && webglOk() && !reduce(),
     [],
   );
 
-  if (desktopRipple) {
+  if (useWaterWave) {
     return (
       <WaterWave
         imageUrl={bg}
@@ -79,10 +58,9 @@ export default function Home() {
     );
   }
 
-  /* ── fallback or mobile canvas ───────────────── */
+  /* phones & tablets: plain hero image */
   return (
     <div
-      ref={hero}
       className="home-section"
       style={{ backgroundImage: `url(${bg})` }}
     >
