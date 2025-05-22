@@ -64,8 +64,11 @@ export default function Home() {
     const vanta = WAVES({
       el: heroRef.current,
       THREE,
-      imageSrc: bg,          // use same hero image as texture
-      color: 0x1a6333,       // tweak colours to taste
+      // imageSrc: bg,          // use same hero image as texture
+      // color: 0x1a6333,       // tweak colours to taste
+      color: 0xffffff,       // subtle white highlights
+      backgroundColor: 0x000000,  // required by lib
+      backgroundAlpha: 0.0,       
       shininess: 40,
       waveHeight: 15,
       waveSpeed: 0.5,
