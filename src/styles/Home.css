@@ -132,3 +132,29 @@
   .home-content p            { font-size: 1.125rem; }
   .download-btn              { padding: 0.75rem 2rem; }
 }
+/* ───────── Mobile / Tablet water effect ───────────── */
+@media (max-width: 767px) {
+  /* create a translucent wave mask that slides infinitely */
+  .home-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;        /* keep links clickable */
+    background-image:
+      repeating-radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 255, 255, 0.10) 0px,
+        rgba(255, 255, 255, 0.10) 2px,
+        transparent 3px,
+        transparent 40px
+      );
+    mix-blend-mode: screen;      /* let the photo shine through */
+    animation: ripple-slide 12s linear infinite;
+  }
+
+  /* subtle left-to-right drift */
+  @keyframes ripple-slide {
+    0%   { transform: translateX(-25%) translateY(-10%); }
+    100% { transform: translateX(25%)  translateY(10%);  }
+  }
+}
