@@ -1,58 +1,161 @@
-/* Navbar container */
+/* ─── basic bar ───────────────────────────────────────── */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color:transparent; /* white @ 60% opacity */
-    
-    z-index: 50;
-    border-bottom: 4px solid rgba(255,255,255,0.3);
-    transition: background-color 0.3s, box-shadow 0.3s;
-  }
-  .navbar.scrolled {
-    background-color: #264E36;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border-bottom: none;
-  }
-  
-  /* Inner flex wrapper: increase padding & height */
-  .navbar-container {
-    max-width: 100%;    /* align with your content width */
-    margin: 0 auto;
-    height: 5rem;        /* 80px tall */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 3rem 0 5rem;
-  }
-  
-  /* Brand / Logo */
-  .logo-nav {
-    color: white;         /* always white over your bg image */
-    font-size: 2.25rem;   /* 20px */
-    font-weight: 700;
-    text-decoration: none;
-  }
-  
-  /* Links wrapper */
+  position: fixed;
+  inset: 0 0 auto 0;               /* top:0; left/right:0 */
+  background: transparent;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.3);
+  transition: background 0.3s, box-shadow 0.3s, border 0.3s;
+  z-index: 50;
+}
+.navbar.scrolled {
+  background: #264e36;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: none;
+}
+
+.navbar-container {
+  max-width: 100%;
+  margin: 0 auto;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+}
+
+.logo-nav {
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ─── links (desktop) ─────────────────────────────────── */
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: #10b981;
+}
+
+/* ─── hamburger + slide-in drawer (≤768 px) ───────────── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.nav-toggle .bar {
+  width: 24px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* phones & tablets */
+@media (max-width: 768px) {
+  /* hide inline links */
   .nav-links {
-    display: flex;
-    gap: 2.5rem;          /* 40px between links */
+    position: absolute;
+    right: -100%;
+    top: 0;
+    height: 100vh;
+    width: 65%;
+    background: #264e36;
+    flex-direction: column;
+    padding-top: 6rem;
+    gap: 2rem;
+    align-items: center;
+    transition: right 0.3s ease;
   }
-  
-  /* Individual link styles */
+  .nav-links.open {
+    right: 0;
+  }
   .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.25rem;      /* 16px */
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: color 0.2s;
+    font-size: 1.5rem;
   }
-  
-  .nav-links a:hover {
-    color: #10B981;       /* emerald accent on hover */
+
+  /* show hamburger */
+  .nav-toggle {
+    display: flex;
   }
-  
+}
+
+/* ─── mobile toggle button ─────────────────────────── */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+/* ─── phones & tablets ≤ 768 px ────────────────────────── */
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+
+  .nav-links {
+    position: absolute;
+    left: 0;
+    top: 100%;                      /* start just below navbar */
+    width: 100%;
+    background: #264e36;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.75rem 0 2.5rem;
+    /* smooth slide + fade */
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;           /* prevent clicks while hidden */
+    transition:
+      transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity   0.35s ease;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    font-size: 1.5rem;
+    position: relative;
+  }
+
+  /* hover highlight */
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: -6px;
+    width: 0; height: 2px;
+    background: #10b981;
+    transition: width 0.25s, left 0.25s;
+  }
+  .nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  /* active (clicked) link */
+  .nav-links a.active {
+    color: #10b981;
+  }
+  .nav-links a.active::after {
+    width: 100%;
+    left: 0;
+  }
+}

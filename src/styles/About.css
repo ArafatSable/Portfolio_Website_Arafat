@@ -3,7 +3,7 @@
 /* Section wrapper */
 #about {
     background-color: #f3f4f6;  /* gray-100 */
-    padding: 2rem 1rem;         /* 64px top/bottom, 16px sides */
+    padding: 3rem 1rem;         /* 64px top/bottom, 16px sides */
   }
   
   /* Center and constrain content */
@@ -15,13 +15,29 @@
   /* Heading */
   .about-container h2 {
     font-size: 2.25rem;         /* 36px */
-    font-weight: 700;
+    font-weight: 400;
     color: #264E36;             /* gray-800 */
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 0.5rem;      /* 8px */
+    position: relative;
   }
-  
+  /* ─── animated underline under the H2 ────────────────────────── */
+/* the line itself */
+.about-container h2::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 6rem;                   /* only as wide as the word initially */
+  background: #264e36;           /* same dark-green you use elsewhere   */
+  margin: 0.75rem auto 0;        /* center it below the heading         */
+  transition: width 0.45s ease;  /* smooth grow                         */
+}
+
+/* when the user hovers the heading, fill the container */
+.about-container h2:hover::after {
+  width: 70%;                   /* stretches to full container width  */
+}
   /* Subheading */
   .about-container p.subtitle {
     color: #4b5563;             /* gray-600 */
@@ -78,3 +94,17 @@
     margin-top: 2rem;       /* 32px between rows */
   }
   
+  /* one column by default — already there */
+
+/* tablet ≥640 px */
+@media (min-width: 640px) {
+  .about-container h2 { font-size: 1.875rem; }     /* 30 px */
+  .about-column h3    { font-size: 1.25rem; }      /* 20 px */
+}
+
+/* laptop ≥1024 px */
+@media (min-width: 1024px) {
+  .about-grid         { grid-template-columns: 1fr 1fr; }
+  .about-container h2 { font-size: 2.25rem; }      /* 36 px */
+  .about-column h3    { font-size: 1.5rem; }       /* 24 px */
+}
