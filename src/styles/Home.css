@@ -2,7 +2,7 @@
 .home-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   /* WaterWave draws the bg, so no background-image here */
   
   background-size: cover;
@@ -38,7 +38,12 @@
 .social-bar a:hover {
   color: #10b981;
 }
-
+/* blend the Vanta canvas with the hero photo */
+.home-section canvas {
+  mix-blend-mode: screen;
+  
+  pointer-events: none;   /* keep links clickable */
+}
 /* ===== Overlay that darkens the photo =========================== */
 .home-overlay {
   position: absolute;
