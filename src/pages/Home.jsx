@@ -42,7 +42,7 @@ export default function Home() {
   /* ── VANTA on phones ─────────────────────────── */
   useEffect(() => {
     if (window.innerWidth >= 768 || !webglOk() || reduce()) return;
-
+  
     const v = WAVES({
       el: hero.current,
       THREE,
@@ -51,9 +51,11 @@ export default function Home() {
       waveHeight: 12,
       waveSpeed: 0.45,
       zoom: 0.9,
+      /* make the canvas transparent */
       backgroundColor: 0x000000,
-      backgroundAlpha: 0.0,       // <- make canvas transparent
+      backgroundAlpha: 0.0,
     });
+  
     return () => v.destroy();
   }, []);
 

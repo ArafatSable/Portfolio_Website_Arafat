@@ -38,11 +38,11 @@
 .social-bar a:hover {
   color: #10b981;
 }
-/* blend the Vanta canvas with the hero photo */
-.home-section canvas {
-  mix-blend-mode: screen;
-  opacity: 100;
-  pointer-events: none;   /* keep links clickable */
+
+.home-section .vanta-canvas canvas {
+  mix-blend-mode: screen;   /* or overlay/soft-light */
+  opacity: 0.35;
+  pointer-events: none;     /* keep buttons clickable */
 }
 /* ===== Overlay that darkens the photo =========================== */
 .home-overlay {
