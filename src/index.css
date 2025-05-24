@@ -3,6 +3,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* in index.css (or at the very top of About.css) */
+:root {
+  /* lightest → darkest */
+  --brand-100: #e1d8c6;
+  --brand-300: #264e36;
+  --brand-500: #1a3a2a;
+  --brand-700: #2e2e2e;
+  --brand-900: #0d0d0d;
+  /* aliases */
+  --bg-light: var(--brand-100);
+  --text-main: var(--brand-900);
+  --primary:  var(--brand-300);
+  --secondary: var(--brand-500);
+  --divider: var(--brand-700);
+}
+body {
+  background-color: var(--brand-100);
+}
 
 * {
   margin: 0;

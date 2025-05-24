@@ -149,11 +149,10 @@
     width: 100%;
     left: 0;
   }
-
-  /* active (clicked) link */
-  .nav-links a.active {
-    color: #10b981;
-  }
+.nav-links a.active {
+  color: var(--primary);
+  font-weight: bold;
+}
   .nav-links a.active::after {
     width: 100%;
     left: 0;
