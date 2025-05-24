@@ -1,175 +1,227 @@
-/* ========= section wrapper =================================== */
-#about {
-  background:#f3f4f6;
-  padding:3rem 1rem;
-}
-
-/* ========= layout =========================================== */
-.about-container { max-width:72rem; margin:0 auto; }
-
-.about-grid { display:grid; grid-template-columns:1fr; gap:2rem; }
-@media (min-width:768px){ .about-grid{ grid-template-columns:1fr 1fr; }}
-
-/* ========= headings ========================================= */
-.about-container h2{
-  font:400 2.25rem/1 "inherit";
-  color:#264e36;text-align:center;text-transform:uppercase;
-  margin-bottom:.5rem;position:relative;
-}
-.about-container h2::after{
-  content:"";display:block;height:3px;width:6rem;background:#264e36;
-  margin:.75rem auto 0;transition:width .45s;
-}
-.about-container h2:hover::after{ width:70%; }
-
-.about-container p.subtitle{
-  color:#4b5563;text-align:center;margin-bottom:2rem;
-}
-.about-column{ color:#374151;line-height:1.6; }
-.about-column h3{ font:600 1.5rem/1 "inherit";color:#065f46;margin-bottom:1rem;}
-.about-column h4{ font:600 1.5rem/1 "inherit";color:#065f46;margin-bottom:.5rem;}
-.about-column p{ margin-bottom:1rem; }
-
-/* spacing between two rows in right column */
-.right-column .about-row + .about-row{ margin-top:2rem; }
-
-/* ========= chip list ======================================== */
-.skill-list{ display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem; }
-
-/* ========= chip base ======================================== */
-.skill-chip{
-  display:inline-block;padding:4px 12px;border-radius:9999px;
-  background:#e5e7eb;color:#374151;font:600 15px/1 "inherit";
-  text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;
-  border:1px solid #cbd5e0;box-shadow:0 1px 2px rgba(0,0,0,.08);
-  transition:transform .15s,box-shadow .15s,background-color .15s,color .15s;
-}
-.skill-chip:hover{ transform:translateY(-2px);box-shadow:0 4px 6px rgba(0,0,0,.12);}
-.skill-chip:active{ transform:none;box-shadow:0 1px 2px rgba(0,0,0,.1);}
-
-/* ========= category colours ================================= */
-/* cloud – blue */
-.skill-chip.cloud:hover   { background:#2563eb;color:#fff; }
-.skill-chip.cloud:active  { background:#1e40af;color:#fff; }
-/* IaC – purple */
-.skill-chip.iac:hover     { background:#7e22ce;color:#fff; }
-.skill-chip.iac:active    { background:#6b21a8;color:#fff; }
-/* language – yellow (keep dark text) */
-.skill-chip.lang:hover    { background:#facc15;color:#374151; }
-.skill-chip.lang:active   { background:#eab308;color:#374151; }
-/* tool – emerald */
-.skill-chip.tool:hover    { background:#059669;color:#fff; }
-.skill-chip.tool:active   { background:#047857;color:#fff; }
-
-/* ======= responsive font tweak ============================== */
-@media (min-width:640px){ .about-container h2{font-size:1.875rem;} }
-@media (min-width:1024px){ .about-container h2{font-size:2.25rem;} }
-
-
-/* ========== Work Experience title ============================ */
-
-
-.work-title{ /* reuse same style as h2 but spaced down */
-  font:600 1.75rem/1 "inherit";
-  color:#3f6212;margin:4rem 0 1.5rem;text-align:center;
-  text-transform:uppercase;
-}
-
-/* ========== Road animation container ========================= */
-.road-wrapper{
-  position:relative;max-width:800px;margin:0 auto 4rem;height:330px;
-}
-.road-svg{ position:absolute;inset:0;width:100%;height:100%; }
-
-.car{
-  position:absolute;
-  width:90px;                 /* your PNG size */
-  height:auto;
-  pointer-events:none;
-
-  /* 1 ▸ follow the same S-curve */
-  offset-path:path("M40 200 C160 80 240 80 360 200 S560 270 760 200");
-  offset-distance:0%;
-
-  /* 2 ▸ rotate automatically so it hugs the bends                */
-  /*    (adds +90° if your PNG points upward; adjust to taste)     */
-  offset-rotate:auto 0deg;    /* auto = tangent, 0deg = no extra tweak */
-
-  /* 3 ▸ put the wheels on the dashed centre line rather than the roof */
-  offset-anchor:20% 10%;      /* 50 % x, 70 % y inside the PNG */
-
-  transform:translate(-50%,-50%);
-  z-index:3;                  /* above road + boxes */
-}
-.work-box{
-  position:absolute;padding:28px 38px;
-  background:#d1d5db;border-radius:4px;font-weight:700;opacity:0;
-  transform:translate(-50%,-50%) scale(.8);
-  transition:opacity .4s ease,transform .4s ease;
-}
-/* make sure boxes sit above the road */
-.road-wrapper .work-box{ z-index:2;offset-rotate: 0deg !important; }
-
-/* put car above everything */
-.car{ z-index:3; }
-
-/* optional: add a subtle edge shadow on the road */
-.road-svg path:first-child{
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,.25));
-}
-
-/* work-box anchors (around 30 % & 75 % feel right) */
-.work1{
-  offset-path: path("M40 200 C160 80 240  80 360 200 S560 270  760 200");
-  offset-distance:30%;
-}
-.work2{
-  offset-path: path("M40 200 C160 80 240  80 360 200 S560 270  760 200");
-  offset-distance:75%;
-}
-/* override offset-path & positions per screen size */
-.road-wrapper.desktop .car {
-  offset-path: path("M40 200 C160 80 240  80 360 200 S560 270  760 200");
-}
-.road-wrapper.desktop .work1 {
-  offset-path: path("M40 200 C160 80 240  80 360 200 S560 270  760 200");
-  offset-distance: 30%;
-}
-.road-wrapper.desktop .work2 {
-  offset-path: path("M40 200 C160 80 240  80 360 200 S560 270  760 200");
-  offset-distance: 75%;
-}
-/* === Mobile / Tablet: straight vertical highway === */
-.road-wrapper.mobile .car {
-  offset-path: path("M100 20 L100 450");
-  offset-rotate: 90deg !important;
-  offset-anchor: 0% 50% !important;
-}
-.road-wrapper.mobile .work1 {
-  offset-path: path("M100 20 L100 480");
-  offset-distance: 30%;
-}
-.road-wrapper.mobile .work2 {
-  offset-path: path("M100 20 L100 480");
-  offset-distance: 75%;
-}
-
-
-/* ========== Play state ======================================= */
-.play .car{
-  animation:car-move 4s ease-in-out forwards;
-}
-.play .work1{
-  animation:box-pop 3.6s ease forwards .7s;
-}
-.play .work2{
-  animation:box-pop 3.2s ease forwards 2.2s;
-}
-
-/* keyframes */
-@keyframes car-move{ to{ offset-distance:100%; } }
-@keyframes box-pop{
-  0%  {opacity:0;transform:translate(-50%,-50%) scale(.8);}
-  60% {opacity:1;transform:translate(-50%,-50%) scale(1.05);}
-  100%{opacity:1;transform:translate(-50%,-50%) scale(1);}
-}
+/* ==============================================================
+   ABOUT ME GRID, CHIPS, SECTION STYLING (unchanged)
+   ============================================================== */
+   #about {
+    background: #f3f4f6;
+    padding: 3rem 1rem;
+  }
+  .about-container { max-width: 72rem; margin: 0 auto; }
+  .about-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  @media (min-width: 768px) {
+    .about-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .about-container h2 {
+    font: 400 2.25rem/1 inherit;
+    color: #264e36;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: .5rem;
+  }
+  .about-container h2::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 6rem;
+    background: #264e36;
+    margin: .75rem auto 0;
+    transition: width .45s;
+  }
+  .about-container h2:hover::after { width: 70%; }
+  .about-container p.subtitle {
+    color: #4b5563;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .about-column { color: #374151; line-height: 1.6; }
+  .about-column h3, .about-column h4 {
+    font: 600 1.5rem/1 inherit;
+    color: #065f46;
+    margin-bottom: 1rem;
+  }
+  .about-column h4 { margin-bottom: .5rem; }
+  .about-column p { margin-bottom: 1rem; }
+  .right-column .about-row + .about-row { margin-top: 2rem; }
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-top: .75rem;
+  }
+  .skill-chip {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    background: #e5e7eb;
+    color: #374151;
+    font: 600 15px/1 inherit;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    border: 1px solid #cbd5e0;
+    box-shadow: 0 1px 2px rgba(0,0,0,.08);
+    transition: transform .15s, box-shadow .15s, background-color .15s, color .15s;
+  }
+  .skill-chip:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,.12); }
+  .skill-chip:active { transform: none; box-shadow: 0 1px 2px rgba(0,0,0,.1); }
+  /* category colors… */
+  .skill-chip.cloud:hover { background: #2563eb; color: #fff; }
+  .skill-chip.iac:hover   { background: #7e22ce; color: #fff; }
+  .skill-chip.lang:hover  { background: #facc15; color: #374151; }
+  .skill-chip.tool:hover  { background: #059669; color: #fff; }
+  
+  /* ==============================================================
+     WORK EXPERIENCE ROAD & ANIMATION
+     ============================================================== */
+  .work-title {
+    font: 600 1.75rem/1 inherit;
+    text-align: center;
+    text-transform: uppercase;
+    color: #3f6212;
+    margin: 4rem 0 1.5rem;
+  }
+  
+  .road-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    height: 330px;
+    overflow: visible;
+  }
+  
+  /* both SVGs fill the wrapper absolutely */
+  .road-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* hide straight by default */
+  .road-svg.straight { display: none; }
+  
+  /* road surface styling */
+  .road-surface {
+    fill: none;
+    stroke: #464646;
+    stroke-width: 40;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,.25));
+  }
+  /* dashed centre */
+  .road-dash {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 4;
+    stroke-dasharray: 20 28;
+    stroke-linecap: round;
+  }
+  
+  /* car container */
+  .car {
+    position: absolute;
+    z-index: 3;
+  
+    /* desktop: S-curve */
+    offset-path: path("M40 200 C160 80 240 80 360 200 S560 270 760 200");
+    offset-distance: 0%;
+    offset-rotate: auto -90deg;
+    offset-anchor: 0% 20%;
+    transform: translate(-50%, -50%);
+  }
+ 
+  .car-svg {
+    width: 90px;
+    height: auto;
+    display: block;
+    pointer-events: none;
+  }
+  
+  /* work-box popups */
+  .work-box {
+    position: absolute;
+    z-index: 2;
+    background: #d1d5db;
+    padding: 28px 38px;
+    border-radius: 4px;
+    font-weight: 700;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.8);
+    transition: opacity .4s ease, transform .4s ease;
+  }
+  /* anchors on the S-curve */
+  .work1 {
+    offset-path: path("M40 200 C160 80 240 80 360 200 S560 270 760 200");
+    offset-distance: 30%;
+  }
+  .work2 {
+    offset-path: path("M40 200 C160 80 240 80 360 200 S560 270 760 200");
+    offset-distance: 75%;
+  }
+  
+  /* play states */
+  .play .car {
+    animation: car-move 4s ease-in-out forwards;
+  }
+  .play .work1 {
+    animation: box-pop 3.6s ease forwards .7s;
+  }
+  .play .work2 {
+    animation: box-pop 3.2s ease forwards 2.2s;
+  }
+  
+  @keyframes car-move {
+    to { offset-distance: 100%; }
+  }
+  @keyframes box-pop {
+    0%   { opacity: 0; transform: translate(-50%, -50%) scale(.8); }
+    60%  { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+  
+  /* ==============================================================
+     Tablet & Mobile (<1024px)
+     ============================================================== */
+  @media (max-width: 1023px) {
+    .road-wrapper {
+      height: 500px; /* room for vertical road */
+    }
+    .road-surface {
+      stroke-width: 30;
+    }
+    .road-dash {
+      stroke-dasharray: 20 30;
+    }
+  
+    /* swap which SVG is visible */
+    .road-svg.curve  { display: none; }
+    .road-svg.straight { display: none; }
+  
+    /* vertical line path */
+    .car {
+      offset-path: path("M130 20 L130 480");
+      offset-rotate: auto 90deg;
+      offset-anchor: 50% 0; /* center on the top */
+      
+      /* offset-anchor / translate stay the same */
+    }
+    .work1 {
+      offset-path: path("M270 20 L100 480");
+      offset-distance: 30%;
+      offset-rotate: 0deg !important; 
+    }
+    .work2 {
+      offset-path: path("M570 20 L100 480");
+      offset-distance: 75%;
+      offset-rotate: 0deg !important; 
+    }
+  }
+  .debug-path {
+    fill: none;
+    stroke: rgb(0, 0, 0);
+    stroke-width: 2;
+    stroke-dasharray: 5 5;
+    pointer-events: none;
+  }
+  
