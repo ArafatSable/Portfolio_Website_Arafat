@@ -1,7 +1,8 @@
-// tailwind.config.js
-module.exports = {
-  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
-  base: '/Portfolio_Website_Arafat/', 
-  theme: { extend: {} },
-  plugins: [],
-};
+// vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  base: '/Portfolio_Website_Arafat/',
+  plugins: [react()]
+})
