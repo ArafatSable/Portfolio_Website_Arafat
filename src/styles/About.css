@@ -20,7 +20,7 @@
 
 /* Headings */
 .about-container h1 {
-  font-size: xx-large;
+  font-size: 2.2rem;
   color: var(--primary);
   text-align: center;
   text-transform: uppercase;
@@ -186,6 +186,6 @@
 
 @media (min-width: 1024px) {
   .about-container h1 {
-    font-size: 2.25rem;
+    font-size: 2.75rem;
   }
 }
