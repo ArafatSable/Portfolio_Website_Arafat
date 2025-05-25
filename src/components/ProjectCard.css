@@ -3,7 +3,7 @@
   --card-bg: #ffffff;
   --card-border: #cbd5e0;
   --primary: #264e36;
-  --hover-bg: #f3f4f6;
+  --hover-bg: #ffffff;
 }
 
 .project-card {
@@ -24,8 +24,8 @@
   background: var(--hover-bg);
   border-color: var(--primary);
   /* simple constant glow: */
-  box-shadow: 0 0 8px var(--primary);
-  transform:scale(1.02);
+  box-shadow: 0 0 22px var(--primary);
+  transform:scale(1.001);
 }
 
 .project-image {
@@ -74,6 +74,7 @@
 
 .project-button:hover {
   background: var(--hover-bg);
+  border: 1px solid var(--primary) ;
   color: var(--primary);
 }
 
