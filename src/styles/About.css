@@ -10,7 +10,7 @@
 /* Section wrapper */
 #about {
   background: var(--bg-light);
-  padding: 8rem 1rem;
+  padding: 2rem 1rem;
 }
 
 .about-container {
@@ -126,6 +126,7 @@
 }
 
 .skill-list {
+  padding: 2rem 2rem 0 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -144,6 +145,9 @@
   border-radius: 8px;
   transition: background .2s, border-color .2s;
   cursor: pointer;
+  transition: background .2s,
+              border-color .2s,
+              box-shadow .2s;
 }
 
 .skill-card .skill-icon {
@@ -163,6 +167,8 @@
 .skill-card:hover {
   background: var(--hover-bg);
   border-color: var(--primary);
+  /* simple constant glow: */
+  box-shadow: 0 0 8px var(--primary);
 }
 
 .skill-card:hover .skill-icon {

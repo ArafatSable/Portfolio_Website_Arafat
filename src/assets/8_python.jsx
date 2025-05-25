@@ -15,7 +15,7 @@ const SVGComponent = (props) => (
       <g
         id="Dribbble-Light-Preview"
         transform="translate(-340.000000, -7599.000000)"
-        fill="#000000"
+        fill="#1a3a2a"
       >
         <g id="icons" transform="translate(56.000000, 160.000000)">
           <path

@@ -10,7 +10,7 @@ const SVGComponent = (props) => (
     <defs>
       <style>
         {
-          ".a{fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;}"
+          ".a{fill:none;stroke:#1a3a2a;stroke-linecap:round;stroke-linejoin:round;}"
         }
       </style>
     </defs>

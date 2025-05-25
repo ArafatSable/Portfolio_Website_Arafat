@@ -1,0 +1,37 @@
+/* src/styles/Cursor.css */
+
+/* tiny dot under the real pointer */
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* inner dot */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  transition: background 0.1s;
+  mix-blend-mode: difference; /* optional – makes it visible on light/dark */
+}
+
+/* outer ring */
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 50%;
+  transition: transform 0.1s ease, border-color 0.1s ease;
+}
+
+/* on click, pulse the outer ring down & tint it green */
+.cursor-outline.cursor-click {
+  transform: translate(-50%, -50%) scale(0.75);
+  border-color: rgba(25,185,129,0.8);
+}

@@ -75,13 +75,12 @@ export default function About() {
     <div className="intro-text">
     <h3>Get To Know Me!</h3>
       <p>
-        I’m Arafat Sable, a Computer Science graduate and DevOps Engineer
-        based in Ahmedabad. I love turning complex infrastructure into
+        I’m <b>Arafat Sable</b>, a Computer Science graduate and <b>DevOps Engineer</b> based in Ahmedabad. I love turning complex infrastructure into
         simple, automated pipelines that ship code faster and more reliably.
       </p>
       <p>
-        Whether it’s designing fault-tolerant AWS architectures or
-        containerizing applications on Kubernetes, I’m happiest when
+        Whether it’s designing fault-tolerant <b>AWS architectures</b> or
+        containerizing applications on <b>Kubernetes</b>, I’m happiest when
         solving cloud challenges end-to-end.
       </p>
       <p>

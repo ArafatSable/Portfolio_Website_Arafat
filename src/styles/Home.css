@@ -6,8 +6,9 @@
   /* WaterWave draws the bg, so no background-image here */
   
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center center; 
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,8 +45,9 @@
 .home-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgb(0 0 0 / 8%);
   z-index: 5;
+  
 }
 
 /* ===== Centered text block ===================================== */

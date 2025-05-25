@@ -1,0 +1,24 @@
+/* src/pages/Projects.css */
+.projects-container {
+  padding: 4rem 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.projects-container h2 {
+  text-align: center;
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* always center the cards */
+  gap: 2rem;
+}
+
+.project-card {
+  flex: 0 0 300px; /* each card is 280px wide */
+}
