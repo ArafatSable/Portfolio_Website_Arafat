@@ -19,7 +19,7 @@
 }
 
 /* Headings */
-.about-container h2 {
+.about-container h1 {
   font: 400 2.25rem/1 inherit;
   color: var(--primary);
   text-align: center;
@@ -28,7 +28,7 @@
   position: relative;
 }
 
-.about-container h2::after {
+.about-container h1::after {
   content: "";
   display: block;
   height: 3px;
@@ -38,7 +38,7 @@
   transition: width .3s;
 }
 
-.about-container h2:hover::after {
+.about-container h1:hover::after {
   width: 70%;
 }
 
@@ -106,7 +106,7 @@
   to   { transform: rotate(360deg); }
 }
 /* Intro */
-.about-intro h3 {
+.about-intro h2 {
   font: 600 1.5rem/1 inherit ;
   color: var(--primary);
   margin-bottom: 1rem;
@@ -119,8 +119,8 @@
 }
 
 /* Skills & Tools */
-.about-skills h3,
-.about-tools h3 {
+.about-skills h2,
+.about-tools h2 {
   color: var(--primary);
   margin-bottom: 1rem;
 }
@@ -178,13 +178,13 @@
 
 /* Responsive */
 @media (min-width: 640px) {
-  .about-container h2 {
+  .about-container h1 {
     font-size: 1.875rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .about-container h2 {
+  .about-container h1 {
     font-size: 2.25rem;
   }
 }

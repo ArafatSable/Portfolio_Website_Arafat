@@ -62,7 +62,7 @@ export default function About() {
     <section id="about">
       <div className="about-container">
         {/* ===== Heading ===== */}
-        <h2>About Me</h2>
+        <h1>About Me</h1>
         <p className="subtitle">Here you will find more about me.</p>
 
         {/* ===== ROW: Intro ===== */}
@@ -98,7 +98,7 @@ export default function About() {
 
         {/* ===== ROW: Skills ===== */}
         <div className="about-row about-skills">
-          <h3>My Skills</h3>
+          <h2>My Skills</h2>
           <div className="skill-list">
             {skills.map((s) => (
               <SkillCard key={s.label} Icon={s.Icon} label={s.label} />
@@ -108,7 +108,7 @@ export default function About() {
 
         {/* ===== ROW: Languages & Tools ===== */}
         <div className="about-row about-tools">
-          <h3>Languages & Tools</h3>
+          <h2>Languages & Tools</h2>
           <div className="skill-list">
             {tools.map((t) => (
               <SkillCard key={t.label} Icon={t.Icon} label={t.label} />
