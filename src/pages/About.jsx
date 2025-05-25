@@ -73,7 +73,7 @@ export default function About() {
   
     {/* left column: text */}
     <div className="intro-text">
-    <h3>Get To Know Me!</h3>
+    
       <p>
         I’m <b>Arafat Sable</b>, a Computer Science graduate and <b>DevOps Engineer</b> based in Ahmedabad. I love turning complex infrastructure into
         simple, automated pipelines that ship code faster and more reliably.
