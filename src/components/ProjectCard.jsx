@@ -1,6 +1,6 @@
 // src/components/ProjectCard.jsx
 import React from "react";
-import "./ProjectCard.css";
+import "../styles/ProjectCard.css";
 
 export default function ProjectCard({ image, title, description, github, demo }) {
   return (

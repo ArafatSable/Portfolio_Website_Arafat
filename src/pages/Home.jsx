@@ -49,9 +49,9 @@ export default function Home() {
       <WaterWave
         imageUrl={bg}
         className="home-section"
-        dropRadius={15}
-        perturbance={0.015}
-        resolution={256}
+        dropRadius={10}
+        perturbance={0.0055}
+        resolution={500}
       >
         {() => <Overlay />}
       </WaterWave>

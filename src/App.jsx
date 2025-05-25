@@ -7,6 +7,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import './App.css';
 import Cursor from "./components/Cursor";
+import Resume from "./pages/Resume";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/resume" element={<Resume />} />
           {/* if you want a catch-all: */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
