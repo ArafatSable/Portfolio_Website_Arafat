@@ -19,7 +19,7 @@ export default function Navbar() {
   return (
     <nav className={`navbar`}>
       <div className="navbar-container">
-        <Link to="/" className="logo-nav">ARAFAT SABLE</Link>
+        <Link to="/" className="logo-nav">A.A.S</Link>
 
         <button
           className="nav-toggle"

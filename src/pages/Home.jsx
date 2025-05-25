@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import WaterWave from "react-water-wave";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-
+import TypewriterHeading from "../components/TypewriterHeading";
 import bg from "../assets/bg.png";
 import resume from "../assets/Resume.pdf";
 import "../styles/Home.css";
@@ -30,7 +30,7 @@ const Overlay = () => (
     <div className="home-overlay" />
 
     <div className="home-content">
-      <h1 className="typewriter">Hi, I’m Arafat Sable</h1>
+      <TypewriterHeading />
       <p>I build and automate cloud-native infrastructures that scale.</p>
       <a href={resume} className="download-btn" download>Download CV</a>
     </div>
