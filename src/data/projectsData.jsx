@@ -39,7 +39,7 @@ const projects = [
     id: 4,
     title: "Bitbucket Self-Hosted Runners Autoscaler on Kubernetes",
     description:
-      "Set up autoscaling Bitbucket runners in Kubernetes with Docker-in-Docker support, IRSA-based ECR push access, and custom `runner-scale-set` config using Kustomize.",
+      "Set up autoscaling Bitbucket runners in Kubernetes with Docker-in-Docker support, IRSA-based ECR push access, and custom `runner-scale-set` config using Kustomizes.",
     image: bitbucket,
     
   },
