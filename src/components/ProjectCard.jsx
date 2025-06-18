@@ -11,6 +11,8 @@ export default function ProjectCard({ image, title, description, github, demo })
       <p className="project-description">{description}</p>
 
       
+
+      
     </div>
   );
 }
