@@ -13,12 +13,22 @@ export default function ProjectCard({ image, title, description, github, demo })
       {(github || demo) && (
         <div className="project-links">
           {github && (
-            <a href={github} target="_blank" rel="noopener noreferrer">
+            <a
+              href={github}
+              className="project-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub
             </a>
           )}
           {demo && (
-            <a href={demo} target="_blank" rel="noopener noreferrer">
+            <a
+              href={demo}
+              className="project-button outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Demo
             </a>
           )}
