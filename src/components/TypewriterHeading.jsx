@@ -5,9 +5,10 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 export default function TypewriterHeading() {
   const [text] = useTypewriter({
     words: [
-      "Hi, I’m Arafat Sable",
-      "Hi, I’m Developer",
-      "Hi, I love DevOps",
+      "Hi, I'm Arafat Sable",
+      "Zoho Creator Developer",
+      "AWS Solutions Architect",
+      "Building API integrations",
     ],
     loop: true,
     typeSpeed: 100,

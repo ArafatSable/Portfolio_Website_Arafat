@@ -31,14 +31,13 @@ const Overlay = () => (
 
     <div className="home-content">
       <TypewriterHeading />
-      <p>I build and automate cloud-native infrastructures that scale.</p>
+      <p>I build enterprise low-code apps and government API integrations — remotely across IST/GST.</p>
       <a href={resume} className="download-btn" download>Download CV</a>
     </div>
   </>
 );
 
 export default function Home() {
-  /* run the ripple only on large screens with WebGL */
   const useWaterWave = useMemo(
     () => window.innerWidth >= 768 && webglOk() && !reduce(),
     [],
@@ -58,7 +57,6 @@ export default function Home() {
     );
   }
 
-  /* phones & tablets: plain hero image */
   return (
     <div
       className="home-section"

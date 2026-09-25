@@ -10,9 +10,20 @@ export default function ProjectCard({ image, title, description, github, demo })
       <h3 className="project-title">{title}</h3>
       <p className="project-description">{description}</p>
 
-      
-
-      
+      {(github || demo) && (
+        <div className="project-links">
+          {github && (
+            <a href={github} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          )}
+          {demo && (
+            <a href={demo} target="_blank" rel="noopener noreferrer">
+              Demo
+            </a>
+          )}
+        </div>
+      )}
     </div>
   );
 }

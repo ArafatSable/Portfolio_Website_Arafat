@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../styles/About.css'
 
-//–– pull in your icon‐components from src/assets ––
 import CloudIcon       from '../assets/1_cloud.jsx'
 import AwsIcon         from '../assets/2_aws.jsx'
 import TerraformIcon   from '../assets/3_terraform_Solid.jsx'
@@ -15,7 +14,6 @@ import GitIcon         from '../assets/10_git.jsx'
 import BashIcon        from '../assets/11_bash.jsx'
 import profile from '../assets/arafat.jpeg'
 
-/* ── Reusable SkillCard ────────────────────────────────────── */
 const SkillCard = ({ Icon, label }) => (
   <div className="skill-card">
     <Icon className="skill-icon" />
@@ -42,61 +40,55 @@ export default function About() {
   }, [])
 
   const skills = [
-    { label: 'Cloud & Infrastructure', Icon: CloudIcon },
+    { label: 'Zoho Creator',       Icon: CloudIcon },
     { label: 'AWS',                Icon: AwsIcon },
     { label: 'Terraform',          Icon: TerraformIcon },
-    { label: 'Ansible',            Icon: AnsibleIcon },
-    { label: 'Kubernetes',         Icon: KubernetesIcon },
-    { label: 'Helm',               Icon: HelmIcon },
+    { label: 'REST APIs',          Icon: AnsibleIcon },
+    { label: 'Docker',             Icon: KubernetesIcon },
+    { label: 'GitHub Actions',     Icon: HelmIcon },
   ]
 
   const tools = [
     { label: 'JavaScript', Icon: JSIcon },
     { label: 'Python',     Icon: PythonIcon },
-    { label: 'Java',       Icon: JavaIcon },
+    { label: 'Deluge / SQL', Icon: JavaIcon },
     { label: 'Git',        Icon: GitIcon },
-    { label: 'Bash',       Icon: BashIcon },
+    { label: 'Node.js',    Icon: BashIcon },
   ]
 
   return (
     <section id="about">
       <div className="about-container">
-        {/* ===== Heading ===== */}
         <h1>About Me</h1>
-        <p className="subtitle">Here you will find more about me.</p>
+        <p className="subtitle">Zoho Creator Certified Developer · AWS Solutions Architect · Open to remote</p>
 
-        {/* ===== ROW: Intro ===== */}
         <div className="about-row about-intro">
-  
+          <div className="intro-grid">
+            <div className="intro-text">
+              <p>
+                I’m <b>Arafat Sable</b>, a B.Tech CSE graduate from Nirma University
+                and a <b>Zoho Creator Certified Developer</b> based in Maharashtra, India.
+                I work fully remotely across IST/GST time zones.
+              </p>
+              <p>
+                I build enterprise low-code applications and government API integrations
+                in Zoho Creator — Deluge functions, custom JS widgets, bulk-push pipelines,
+                and CRM/Books integrations. I also design cloud infrastructure on
+                <b> AWS</b> (ECS, S3, CloudFront, CloudWatch) with Docker, Terraform, and GitHub Actions.
+              </p>
+              <p>
+                Certifications: Zoho Creator Certified Developer – Associate (Apr 2026),
+                AWS Certified Solutions Architect – Associate SAA-C03 (Mar 2026),
+                AWS Certified Cloud Practitioner (Jan 2026).
+              </p>
+            </div>
 
-  <div className="intro-grid">
-  
-    {/* left column: text */}
-    <div className="intro-text">
-    
-      <p>
-        I’m <b>Arafat Sable</b>, a Computer Science graduate and <b>DevOps Engineer</b> based in Ahmedabad. I love turning complex infrastructure into
-        simple, automated pipelines that ship code faster and more reliably.
-      </p>
-      <p>
-        Whether it’s designing fault-tolerant <b>AWS architectures</b> or
-        containerizing applications on <b>Kubernetes</b>, I’m happiest when
-        solving cloud challenges end-to-end.
-      </p>
-      <p>
-        Outside of work, you’ll find me experimenting with planted
-        aquascapes or tinkering with the latest open-source DevOps tools.
-      </p>
-    </div>
+            <div className="intro-image">
+              <img src={profile} alt="Arafat Sable" className="profile-pic" />
+            </div>
+          </div>
+        </div>
 
-    {/* right column: your headshot (or any image) */}
-    <div className="intro-image">
-      <img src={profile} alt="Arafat Sable" className="profile-pic" />
-    </div>
-  </div>
-</div>
-
-        {/* ===== ROW: Skills ===== */}
         <div className="about-row about-skills">
           <h2>My Skills</h2>
           <div className="skill-list">
@@ -106,7 +98,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* ===== ROW: Languages & Tools ===== */}
         <div className="about-row about-tools">
           <h2>Languages & Tools</h2>
           <div className="skill-list">
@@ -115,8 +106,6 @@ export default function About() {
             ))}
           </div>
         </div>
-
-        {/* insert Work-Experience SVG animation here, using `play` & `workRef` */}
       </div>
     </section>
   )

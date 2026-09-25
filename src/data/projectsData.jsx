@@ -1,64 +1,58 @@
 // src/data/projectsData.jsx
 
-// 1) import your images
-import ecs    from "../assets/ECS.png";
-import vpn    from "../assets/VPN.png";
-import opensearch    from "../assets/opensearch.png";
-import bitbucket    from "../assets/bitbucket.png";
-import cwa    from "../assets/cwa.png";
-import azure    from "../assets/azure.png";
-// You can replace these with real project images later
+import ecs from "../assets/ECS.png";
+import vpn from "../assets/VPN.png";
+import opensearch from "../assets/opensearch.png";
+import bitbucket from "../assets/bitbucket.png";
+import cwa from "../assets/cwa.png";
+import azure from "../assets/azure.png";
 
-// 2) export an array of plain objects
 const projects = [
   {
     id: 1,
-    title: "AWS ECS Migration Project",
+    title: "CHEDS Import Tool",
     description:
-      "Migrated EC2-based infrastructure to AWS ECS with GitHub Actions-based CI/CD, ALB integration, CloudWatch monitoring, and Terraform-defined staging and production environments.",
-    image: ecs,
-    
+      "Python + Streamlit tool that converts Ministry HEDB Excel exports into Zoho Creator import-ready files using per-module mapping configs. Companion to a government reporting integration covering 15 CHEDS/GSB modules with add/update/delete and bulk-push.",
+    image: cwa,
+    github: "https://github.com/ArafatSable/cheds-import-tool",
   },
   {
     id: 2,
-    title: "ZTNA PoC with Firezone & NetBird",
+    title: "Government Data Reporting Integration",
     description:
-      "Designed and tested Zero Trust VPN access using Firezone and NetBird to enable secure remote access to internal AWS and Azure resources via site-to-site and peer-to-peer models.",
-    image: vpn,
-    
+      "Zoho Creator application that submits institutional data to the UAE Ministry of Higher Education CHEDS/GSB API across 15 reporting modules. Deluge functions for add/update/delete and bulk-push with error handling, batch limits, and retry logic. Raised bulk-push throughput from 25 to 110 records per run. Client work under NDA — details generalised.",
+    image: ecs,
   },
   {
     id: 3,
-    title: "OpenSearch with GCS Snapshots (Helm + Kubernetes)",
+    title: "Student Information System (Zoho Creator)",
     description:
-      "Deployed OpenSearch on Kubernetes with secure GCS snapshot backups using Helm, custom volume mounts, keystore credentials, and automated plugin configuration for OpenSearch 1.3.x.",
+      "Learning-outcome attainment module with 3 custom JavaScript widgets, academic-integrity case management, feedback/QA dashboards, and a visa expiry scheduler integrated with Zoho CRM and Zoho Books. Client work under NDA — details generalised.",
     image: opensearch,
-    
   },
   {
     id: 4,
-    title: "Bitbucket Self-Hosted Runners Autoscaler on Kubernetes",
+    title: "Financial Data Pair Trading Platform",
     description:
-      "Set up autoscaling Bitbucket runners in Kubernetes with Docker-in-Docker support, IRSA-based ECR push access, and custom `runner-scale-set` config using Kustomizes.",
-    image: bitbucket,
-    
+      "Real-time visualisations of financial pairs with analytics APIs. Built with React, Node.js, and MongoDB.",
+    image: azure,
+    github: "https://github.com/ArafatSable/Pair_trading",
   },
   {
     id: 5,
-    title: "CloudWatch + Ansible + Terraform Integration",
+    title: "Real-Time Data Pipeline",
     description:
-      "Automated EC2 disk usage monitoring across environments using Ansible, dynamic detection of mount paths, and CloudWatch alarm provisioning through reusable Terraform modules.",
-    image: cwa,
-    
+      "Ingestion pipeline for high-frequency financial data with data-quality checks. Kafka, Spark, Python, and SQL.",
+    image: bitbucket,
+    github: "https://github.com/ArafatSable/Real_Time_Data_Streaming",
   },
   {
     id: 6,
-    title: "Azure Hub-and-Spoke Architecture (Cost-Efficient)",
+    title: "Image Regeneration using U-Net",
     description:
-      "Built a scalable hub-and-spoke architecture on Azure with isolated prod/dev environments, public-private subnets, NSGs, Standard Load Balancer, and cost-optimized NAT gateway setup.",
-    image: azure,
-    
-  }
+      "Reconstructs clear images from blurred datasets using patch-based preprocessing. Python, TensorFlow, and OpenCV.",
+    image: vpn,
+  },
 ];
 
 export default projects;
