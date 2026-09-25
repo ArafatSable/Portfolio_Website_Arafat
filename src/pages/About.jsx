@@ -14,46 +14,50 @@ import GitIcon         from '../assets/10_git.jsx'
 import BashIcon        from '../assets/11_bash.jsx'
 import profile from '../assets/arafat.jpeg'
 
-const SkillCard = ({ Icon, label }) => (
-  <div className="skill-card">
+const SkillCard = ({ Icon, label, delay, visible }) => (
+  <div
+    className={`skill-card ${visible ? 'skill-card--in' : ''}`}
+    style={{ '--delay': `${delay}ms` }}
+  >
     <Icon className="skill-icon" />
     <span className="skill-label">{label}</span>
   </div>
 )
 
 export default function About() {
-  const workRef = useRef(null)
-  const [play, setPlay] = useState(false)
+  const skillsRef = useRef(null)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setPlay(true)
+          setVisible(true)
           io.disconnect()
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.2 }
     )
-    if (workRef.current) io.observe(workRef.current)
+    if (skillsRef.current) io.observe(skillsRef.current)
     return () => io.disconnect()
   }, [])
 
   const skills = [
-    { label: 'Zoho Creator',       Icon: CloudIcon },
-    { label: 'AWS',                Icon: AwsIcon },
-    { label: 'Terraform',          Icon: TerraformIcon },
-    { label: 'REST APIs',          Icon: AnsibleIcon },
-    { label: 'Docker',             Icon: KubernetesIcon },
-    { label: 'GitHub Actions',     Icon: HelmIcon },
+    { label: 'Zoho Creator',   Icon: CloudIcon },
+    { label: 'AWS',            Icon: AwsIcon },
+    { label: 'Terraform',      Icon: TerraformIcon },
+    { label: 'Ansible',        Icon: AnsibleIcon },
+    { label: 'Kubernetes',     Icon: KubernetesIcon },
+    { label: 'Helm',           Icon: HelmIcon },
   ]
 
   const tools = [
     { label: 'JavaScript', Icon: JSIcon },
     { label: 'Python',     Icon: PythonIcon },
-    { label: 'Deluge / SQL', Icon: JavaIcon },
+    { label: 'Java',       Icon: JavaIcon },
     { label: 'Git',        Icon: GitIcon },
-    { label: 'Node.js',    Icon: BashIcon },
+    { label: 'Bash',       Icon: BashIcon },
+    { label: 'Deluge',     Icon: CloudIcon },
   ]
 
   return (
@@ -71,10 +75,10 @@ export default function About() {
                 I work fully remotely across IST/GST time zones.
               </p>
               <p>
-                I build enterprise low-code applications and government API integrations
+                I build enterprise low-code applications and API integrations
                 in Zoho Creator — Deluge functions, custom JS widgets, bulk-push pipelines,
                 and CRM/Books integrations. I also design cloud infrastructure on
-                <b> AWS</b> (ECS, S3, CloudFront, CloudWatch) with Docker, Terraform, and GitHub Actions.
+                <b> AWS</b> (ECS, S3, CloudFront, CloudWatch) with Docker, Terraform, Kubernetes, and GitHub Actions.
               </p>
               <p>
                 Certifications: Zoho Creator Certified Developer – Associate (Apr 2026),
@@ -89,11 +93,17 @@ export default function About() {
           </div>
         </div>
 
-        <div className="about-row about-skills">
+        <div className="about-row about-skills" ref={skillsRef}>
           <h2>My Skills</h2>
           <div className="skill-list">
-            {skills.map((s) => (
-              <SkillCard key={s.label} Icon={s.Icon} label={s.label} />
+            {skills.map((s, i) => (
+              <SkillCard
+                key={s.label}
+                Icon={s.Icon}
+                label={s.label}
+                delay={i * 90}
+                visible={visible}
+              />
             ))}
           </div>
         </div>
@@ -101,8 +111,14 @@ export default function About() {
         <div className="about-row about-tools">
           <h2>Languages & Tools</h2>
           <div className="skill-list">
-            {tools.map((t) => (
-              <SkillCard key={t.label} Icon={t.Icon} label={t.label} />
+            {tools.map((t, i) => (
+              <SkillCard
+                key={t.label}
+                Icon={t.Icon}
+                label={t.label}
+                delay={(i + skills.length) * 90}
+                visible={visible}
+              />
             ))}
           </div>
         </div>
