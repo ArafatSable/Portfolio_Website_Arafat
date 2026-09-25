@@ -9,7 +9,7 @@ export default function Projects() {
     <section className="projects-container">
       <h2>My Projects</h2>
       <p className="subtitle" style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-        Selected public work and generalised client projects. Client names omitted under NDA.
+        Selected work. Client identities omitted.
       </p>
       <div className="projects-grid">
         {projects.map((p) => (
