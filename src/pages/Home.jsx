@@ -1,13 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef } from "react";
 import WaterWave from "react-water-wave";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import TypewriterHeading from "../components/TypewriterHeading";
+import { clearCvFile, saveCvFile, useCvFile } from "../hooks/useCvFile";
 import bg from "../assets/bg.png";
-import bundledResume from "../assets/Resume.pdf";
 import "../styles/Home.css";
-
-const CV_STORE_KEY = "arafat-cv-dataurl";
-const CV_NAME_KEY = "arafat-cv-name";
 
 const webglOk = () => {
   try {
@@ -22,47 +19,17 @@ const reduce = () =>
 
 const Overlay = () => {
   const fileRef = useRef(null);
-  const [cvUrl, setCvUrl] = useState(bundledResume);
-  const [cvName, setCvName] = useState("");
+  const cv = useCvFile();
 
-  useEffect(() => {
-    const saved = localStorage.getItem(CV_STORE_KEY);
-    const name = localStorage.getItem(CV_NAME_KEY);
-    if (saved) {
-      setCvUrl(saved);
-      setCvName(name || "Uploaded CV.pdf");
-    }
-  }, []);
-
-  const onUpload = (e) => {
+  const onUpload = async (e) => {
     const file = e.target.files?.[0];
     e.target.value = "";
     if (!file) return;
-    if (file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
-      alert("Please upload a PDF.");
-      return;
+    try {
+      await saveCvFile(file);
+    } catch (err) {
+      alert(err.message);
     }
-    const reader = new FileReader();
-    reader.onload = () => {
-      const dataUrl = String(reader.result || "");
-      try {
-        localStorage.setItem(CV_STORE_KEY, dataUrl);
-        localStorage.setItem(CV_NAME_KEY, file.name);
-      } catch {
-        alert("File is too large for this browser to keep. Try a smaller PDF.");
-        return;
-      }
-      setCvUrl(dataUrl);
-      setCvName(file.name);
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const resetCv = () => {
-    localStorage.removeItem(CV_STORE_KEY);
-    localStorage.removeItem(CV_NAME_KEY);
-    setCvUrl(bundledResume);
-    setCvName("");
   };
 
   return (
@@ -79,7 +46,7 @@ const Overlay = () => {
         <TypewriterHeading />
         <p>Zoho Creator Certified Developer building enterprise low-code apps and API integrations. Abu Dhabi · open to UAE roles.</p>
         <div className="cv-actions">
-          <a href={cvUrl} className="download-btn" download={cvName || "Arafat_Sable_CV.pdf"}>
+          <a href={cv.source} className="download-btn" download={cv.name || "Arafat_Sable_CV.pdf"}>
             Download CV
           </a>
           <button type="button" className="upload-btn" onClick={() => fileRef.current?.click()}>
@@ -93,10 +60,10 @@ const Overlay = () => {
             onChange={onUpload}
           />
         </div>
-        {cvName ? (
+        {cv.uploaded ? (
           <p className="cv-status">
-            Using {cvName}.{" "}
-            <button type="button" className="cv-reset" onClick={resetCv}>Use site CV</button>
+            Using {cv.name}.{" "}
+            <button type="button" className="cv-reset" onClick={clearCvFile}>Use site CV</button>
           </p>
         ) : null}
       </div>
