@@ -1,10 +1,10 @@
 // src/data/projectsData.jsx
 
-import ecs from "../assets/ECS.png";
-import vpn from "../assets/VPN.png";
-import opensearch from "../assets/opensearch.png";
-import bitbucket from "../assets/bitbucket.png";
-import azure from "../assets/azure.png";
+import reporting from "../assets/proj_reporting.svg";
+import sis from "../assets/proj_sis.svg";
+import pairs from "../assets/proj_pairs.svg";
+import pipeline from "../assets/proj_pipeline.svg";
+import unet from "../assets/proj_unet.svg";
 
 const projects = [
   {
@@ -12,7 +12,7 @@ const projects = [
     title: "Higher-education statutory reporting pipeline",
     description:
       "Zoho Creator app that submits institutional data to a government higher-ed reporting API across 15 modules. Deluge add/update/delete and bulk-push on staging and production, with error handling, batch limits, and retries. Optimised lookups and raised bulk-push from 25 to 110 records per run. Companion Excel-to-Creator import tool is on GitHub.",
-    image: ecs,
+    image: reporting,
     github: "https://github.com/ArafatSable/cheds-import-tool",
   },
   {
@@ -20,14 +20,14 @@ const projects = [
     title: "Student information system modules",
     description:
       "Learning-outcome attainment module with 3 custom JavaScript widgets, academic-integrity case management, feedback and QA dashboards, and a visa-expiry scheduler integrated with Zoho CRM and Zoho Books.",
-    image: opensearch,
+    image: sis,
   },
   {
     id: 3,
     title: "Financial Data Pair Trading Platform",
     description:
       "Real-time visualisations of financial pairs with analytics APIs. Built with React, Node.js, and MongoDB.",
-    image: azure,
+    image: pairs,
     github: "https://github.com/ArafatSable/Pair_trading",
   },
   {
@@ -35,7 +35,7 @@ const projects = [
     title: "Real-Time Data Pipeline",
     description:
       "Ingestion pipeline for high-frequency financial data with data-quality checks. Kafka, Spark, Python, and SQL.",
-    image: bitbucket,
+    image: pipeline,
     github: "https://github.com/ArafatSable/Real_Time_Data_Streaming",
   },
   {
@@ -43,7 +43,7 @@ const projects = [
     title: "Image Regeneration using U-Net",
     description:
       "Reconstructs clear images from blurred datasets using patch-based preprocessing. Python, TensorFlow, and OpenCV.",
-    image: vpn,
+    image: unet,
   },
 ];
 
