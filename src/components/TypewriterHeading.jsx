@@ -6,9 +6,9 @@ export default function TypewriterHeading() {
   const [text] = useTypewriter({
     words: [
       "Hi, I'm Arafat Sable",
-      "Zoho Creator Developer",
+      "Zoho Creator Certified Developer",
+      "Low-code & API integrations",
       "AWS Solutions Architect",
-      "Building API integrations",
     ],
     loop: true,
     typeSpeed: 100,

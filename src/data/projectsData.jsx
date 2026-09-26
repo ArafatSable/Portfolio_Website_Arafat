@@ -11,7 +11,7 @@ const projects = [
     id: 1,
     title: "Higher-education statutory reporting pipeline",
     description:
-      "Zoho Creator app that submits institutional data to a government higher-ed reporting API across 15 modules. Deluge add/update/delete and bulk-push on staging and production, with error handling, batch limits, and retries. Optimised lookups and raised bulk-push from 25 to 110 records per run. Companion Excel-to-Creator import tool is on GitHub.",
+      "Zoho Creator app submitting institutional data to a government higher-ed reporting API across 15 modules. Deluge add/update/delete and bulk-push, error handling and retries. Raised throughput from 25 to 110 records per run. Companion Python/Streamlit tool maps spreadsheet exports into Creator-ready files. Standardised 38 reports and trained client users.",
     image: reporting,
     github: "https://github.com/ArafatSable/cheds-import-tool",
   },
@@ -19,14 +19,14 @@ const projects = [
     id: 2,
     title: "Student information system modules",
     description:
-      "Learning-outcome attainment module with 3 custom JavaScript widgets, academic-integrity case management, feedback and QA dashboards, and a visa-expiry scheduler integrated with Zoho CRM and Zoho Books.",
+      "Learning-outcome attainment end to end: outcome masters, rubric mapping, 3 custom JS widgets and role-based access. Academic-integrity cases, QA dashboards, visa-expiry scheduler with CRM and Books, plus a division-merge change with combined attendance write-back.",
     image: sis,
   },
   {
     id: 3,
     title: "Financial Data Pair Trading Platform",
     description:
-      "Real-time visualisations of financial pairs with analytics APIs. Built with React, Node.js, and MongoDB.",
+      "Responsive web app with real-time visualisations of financial pairs. React, Node.js, and MongoDB; backend APIs for analytics.",
     image: pairs,
     github: "https://github.com/ArafatSable/Pair_trading",
   },
@@ -34,7 +34,7 @@ const projects = [
     id: 4,
     title: "Real-Time Data Pipeline",
     description:
-      "Ingestion pipeline for high-frequency financial data with data-quality checks. Kafka, Spark, Python, and SQL.",
+      "Ingestion pipeline for high-frequency financial data. Kafka, Spark, Python, and SQL-based quality checks and error handling.",
     image: pipeline,
     github: "https://github.com/ArafatSable/Real_Time_Data_Streaming",
   },
@@ -42,7 +42,7 @@ const projects = [
     id: 5,
     title: "Image Regeneration using U-Net",
     description:
-      "Reconstructs clear images from blurred datasets using patch-based preprocessing. Python, TensorFlow, and OpenCV.",
+      "Deep-learning pipeline reconstructing clear images from blurred datasets, with patch-based preprocessing. Python, TensorFlow, OpenCV. Strong SSIM and PSNR gains over baseline.",
     image: unet,
   },
 ];

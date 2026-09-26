@@ -50,6 +50,13 @@
   margin-bottom: 2.5rem;
 }
 
+.section-heading,
+.about-skills h2,
+.about-tools h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
 .intro-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -98,12 +105,6 @@
   to   { transform: rotate(360deg); }
 }
 
-.about-intro h2 {
-  font: 600 1.5rem/1 inherit;
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
 .about-intro p {
   color: var(--secondary);
   line-height: 1.6;
@@ -111,14 +112,45 @@
   font-size: 1.16rem;
 }
 
-.about-skills h2,
-.about-tools h2 {
+.exp-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.exp-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+}
+
+.exp-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .4rem 1rem;
+  margin-bottom: .45rem;
+}
+
+.exp-top h3 {
   color: var(--primary);
-  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.exp-top span,
+.exp-card p {
+  color: var(--secondary);
+  margin: 0;
+}
+
+.exp-card p {
+  line-height: 1.55;
+  font-size: 1.02rem;
 }
 
 .skill-list {
-  padding: 2rem 2rem 0 2rem;
+  padding: 1.5rem 1rem 0;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -176,13 +208,29 @@
 
 .skill-card:hover .skill-icon {
   fill: var(--primary);
-  transform: scale(1.08);
   animation: iconBob .7s ease-in-out infinite alternate;
 }
 
 @keyframes iconBob {
   from { transform: scale(1.08) translateY(0); }
   to   { transform: scale(1.08) translateY(-6px); }
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.skill-pill {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--secondary);
+  border-radius: 999px;
+  padding: .4rem .9rem;
+  font-size: .95rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -192,12 +240,6 @@
     animation: none;
     opacity: 1;
     transform: none;
-  }
-}
-
-@media (min-width: 640px) {
-  .about-container h1 {
-    font-size: 1.875rem;
   }
 }
 

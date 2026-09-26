@@ -6,7 +6,6 @@ import bg from "../assets/bg.png";
 import resume from "../assets/Resume.pdf";
 import "../styles/Home.css";
 
-/* helpers ------------------------------------------------ */
 const webglOk = () => {
   try {
     const c = document.createElement("canvas");
@@ -18,7 +17,6 @@ const webglOk = () => {
 const reduce = () =>
   matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* overlay ------------------------------------------------ */
 const Overlay = () => (
   <>
     <div className="social-bar">
@@ -31,7 +29,7 @@ const Overlay = () => (
 
     <div className="home-content">
       <TypewriterHeading />
-      <p>I build enterprise low-code apps and government API integrations — remotely across IST/GST.</p>
+      <p>Zoho Creator Certified Developer building enterprise low-code apps and API integrations. Abu Dhabi · open to UAE roles.</p>
       <a href={resume} className="download-btn" download>Download CV</a>
     </div>
   </>
